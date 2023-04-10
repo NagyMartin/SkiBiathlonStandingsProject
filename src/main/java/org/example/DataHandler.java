@@ -3,13 +3,8 @@ package org.example;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Time;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+import java.time.Duration;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class DataHandler {
@@ -34,8 +29,9 @@ public class DataHandler {
         Integer athleteNumber = Integer.parseInt(data[0]);
         String athleteName = data[1];
         String countryCode = data[2];
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("mm:ss");
-        LocalTime skiTimeResult = LocalTime.from(formatter.parse(data[3]));
+        String[] timeData = data[3].split(":");
+        String timeTobeParsed = "PT" + timeData[0] + "M" + timeData[1] + "S";
+        Duration skiTimeResult = Duration.parse(timeTobeParsed);
         String firstShootingRange = data[4];
         String secondShooting = data[5];
         String thirdShooting = data[6];

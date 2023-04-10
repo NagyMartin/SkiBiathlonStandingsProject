@@ -1,12 +1,7 @@
 package org.example;
 
-
-import java.sql.Timestamp;
-import java.time.LocalTime;
+import java.time.Duration;
 import java.time.temporal.ChronoUnit;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 
 public class ResultCalculator {
@@ -19,7 +14,7 @@ public class ResultCalculator {
 
             for (String s : s1) {
                 if(s.equals("O")){
-                    LocalTime timePerformance = athlete.getSkiTimeResult();
+                    Duration timePerformance = athlete.getSkiTimeResult();
                     timePerformance.plus(10, ChronoUnit.SECONDS);
                 }
             }

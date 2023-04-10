@@ -1,19 +1,19 @@
 package org.example;
 
 
-import java.time.LocalTime;
+import java.time.Duration;
 
 public class Athlete {
     private Integer athleteNumber;
     private String athleteName;
     private String countryCode;
-    private LocalTime skiTimeResult;
+    private Duration skiTimeResult;
     private String firstShootingRange;
     private String secondShooting;
     private String thirdShooting;
 
     public Athlete(Integer athleteNumber, String athleteName, String countryCode,
-                   LocalTime skiTimeResult, String firstShootingRange, String secondShooting, String thirdShooting) {
+                   Duration skiTimeResult, String firstShootingRange, String secondShooting, String thirdShooting) {
         this.athleteNumber = athleteNumber;
         this.athleteName = athleteName;
         this.countryCode = countryCode;
@@ -47,11 +47,11 @@ public class Athlete {
         this.countryCode = countryCode;
     }
 
-    public LocalTime getSkiTimeResult() {
+    public Duration getSkiTimeResult() {
         return skiTimeResult;
     }
 
-    public void setSkiTimeResult(LocalTime skiTimeResult) {
+    public void setSkiTimeResult(Duration skiTimeResult) {
         this.skiTimeResult = skiTimeResult;
     }
 
