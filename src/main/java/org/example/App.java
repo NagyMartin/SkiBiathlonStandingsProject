@@ -12,6 +12,14 @@ public class App
 
         dataHandler.readCsvFile(filePath);
 
+        System.out.println();
+
         ResultCalculator calculator = new ResultCalculator();
+
+        calculator.calculateFinalResultAfterPenalties(dataHandler.readCsvFile(filePath));
+
+        System.out.println();
+
+        calculator.displayPodium(dataHandler.readCsvFile(filePath));
     }
 }

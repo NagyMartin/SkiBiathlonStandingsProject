@@ -6,26 +6,41 @@ import java.util.List;
 
 public class ResultCalculator {
 
-
-    protected void calculateFinalResultAfterPenalties(List<Athlete> athleteList) {
+    /**
+     * Calculating the final result method.
+     * @param athleteList Takes an input of a list of Athlete objects.
+     *    Method modifies the time result based on the three shooting results. Each miss, registered as an "o",
+     *                    adds 10 seconds to the time.
+     * @return Returns the Athlete list.
+     */
+    protected List<Athlete> calculateFinalResultAfterPenalties(List<Athlete> athleteList) {
         for (Athlete athlete : athleteList) {
-            String[] s1 = new String[]{athlete.getFirstShootingRange().
-                    concat(athlete.getSecondShooting()).concat(athlete.getThirdShooting())};
-
-            for (String s : s1) {
-                if(s.equals("O")){
+            String s1 = athlete.getFirstShootingRange().concat(athlete.getSecondShooting()
+                    .concat(athlete.getThirdShooting()));
+            String[] shotResult = s1.split("");
+            for (String shot: shotResult) {
+                if(shot.equals("o")) {
                     Duration timePerformance = athlete.getSkiTimeResult();
                     timePerformance.plus(10, ChronoUnit.SECONDS);
+                    athlete.setSkiTimeResult(timePerformance);
+                } else if (!shot.equals("x")){
+                    System.out.println("The shot result registered is not valid.");
                 }
             }
-        }
+        } return athleteList;
     }
 
-    protected void displayPodium(List<Athlete> athleteList) {
+    /**
+     * Podium display method.
+     * @param athleteList Takes an input of a list of Athlete objects.
+     *      Method sorts using an comparator each Athlete object based on time results.
+     * @return Returns the Athlete list.
+     */
+    protected List<Athlete> displayPodium(List<Athlete> athleteList) {
         System.out.println("\nPodium after shooting penalties is: ");
-        for(Athlete athlete: athleteList) {
+        for(int i = 0; i < athleteList.size(); i++) {
             athleteList.sort(new SortByTime());
-            System.out.println(athlete);
-        }
+            System.out.println(athleteList);
+        } return athleteList;
     }
 }

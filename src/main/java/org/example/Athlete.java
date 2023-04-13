@@ -2,17 +2,17 @@ package org.example;
 
 
 import java.time.Duration;
-
+@ImportantClass
 public class Athlete {
-    private Integer athleteNumber;
-    private String athleteName;
-    private String countryCode;
-    private Duration skiTimeResult;
-    private String firstShootingRange;
-    private String secondShooting;
-    private String thirdShooting;
+    protected Integer athleteNumber;
+    protected String athleteName;
+    protected CountryCode countryCode;
+    protected Duration skiTimeResult;
+    protected String firstShootingRange;
+    protected String secondShooting;
+    protected String thirdShooting;
 
-    public Athlete(Integer athleteNumber, String athleteName, String countryCode,
+    public Athlete(Integer athleteNumber, String athleteName, CountryCode countryCode,
                    Duration skiTimeResult, String firstShootingRange, String secondShooting, String thirdShooting) {
         this.athleteNumber = athleteNumber;
         this.athleteName = athleteName;
@@ -39,11 +39,11 @@ public class Athlete {
         this.athleteName = athleteName;
     }
 
-    public String getCountryCode() {
+    public CountryCode getCountryCode() {
         return countryCode;
     }
 
-    public void setCountryCode(String countryCode) {
+    public void setCountryCode(CountryCode countryCode) {
         this.countryCode = countryCode;
     }
 
